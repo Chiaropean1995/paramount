@@ -12,7 +12,7 @@ import axios from "axios"
 
 const PAGE_SIZE = 9
 export default function Gallery() {
-    const url = "http://localhost:3000";
+    const url = "https://paramount-i0x2.onrender.com";
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);

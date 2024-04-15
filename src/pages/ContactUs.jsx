@@ -7,7 +7,7 @@ import { useState } from "react";
 import axios from "axios"
 
 export default function ContactUs() {
-    const url = "http://localhost:3000"
+    const url = "https://paramount-i0x2.onrender.com"
     const [contacts, addContacts] = useState([]);
     const [formData, setFormData] = useState({
         name: '',

@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function AddProjectModal({ onAddProject }) {
-    const url = "http://localhost:3000"
+    const url = "https://paramount-i0x2.onrender.com"
     const [show, setShow] = useState(false);
     const [imageUrl, setImageURL] = useState(null);
     const [file, setFile] = useState(null);

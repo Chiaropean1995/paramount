@@ -16,7 +16,7 @@ export default function UpcomingProjects() {
     const { currentUser } = useContext(AuthContext);
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const url = "http://localhost:3000"
+    const url = "https://paramount-i0x2.onrender.com"
     const [upcomingProjects, setUpcomingProject] = useState([]);
     const [loading, setLoading] = useState(true);
 

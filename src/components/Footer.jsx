@@ -10,7 +10,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Footer() {
-    const url = "http://localhost:3000"
+    const url = "https://paramount-i0x2.onrender.com"
     const formRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
     const [email, setEmail] = useState("");

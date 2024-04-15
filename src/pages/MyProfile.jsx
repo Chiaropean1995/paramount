@@ -6,7 +6,7 @@ import AddProfileImage from "../components/AddProfileImage"
 
 
 export default function ProfilePage() {
-    const url = "http://localhost:3000";
+    const url = "https://paramount-i0x2.onrender.com";
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(true);
 

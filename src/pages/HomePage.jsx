@@ -18,7 +18,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 const PAGE_SIZE = 9
 export default function ProfilePage() {
-    const url = "http://localhost:3000"
+    const url = "https://paramount-i0x2.onrender.com"
     const [projects, setProjects] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(true);

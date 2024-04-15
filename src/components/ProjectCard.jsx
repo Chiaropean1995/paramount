@@ -20,7 +20,7 @@ export default function ProjectCard({ id, price, image_url, title, location, des
     const [showModal, setShowModal] = useState(false);
     const [projects, setProjects] = useState([]);
     const [updatedImage, setUpdatedImage] = useState(null);
-    const url = "http://localhost:3000"
+    const url = "https://paramount-i0x2.onrender.com"
 
 
 

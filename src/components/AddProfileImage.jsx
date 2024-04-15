@@ -8,7 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function AddProfileImage({ onAddProfileImage }) {
-    const url = "http://localhost:3000";
+    const url = "https://paramount-i0x2.onrender.com";
     const { currentUser } = useContext(AuthContext);
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);

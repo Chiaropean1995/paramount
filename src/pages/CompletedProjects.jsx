@@ -14,7 +14,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 const PAGE_SIZE = 5
 export default function CompletedProjects() {
-    const url = "http://localhost:3000"
+    const url = "https://paramount-i0x2.onrender.com"
     const [completedProjects, setCompletedProject] = useState([])
     const { currentUser } = useContext(AuthContext);
     const [currentPage, setCurrentPage] = useState(1);
