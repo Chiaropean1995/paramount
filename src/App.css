@@ -1,0 +1,309 @@
+.social-links a:hover i,
+.top-links a:hover i,
+.top-links a:hover span {
+    color: #01aeef !important;
+    transform: scale(1.2);
+}
+
+.dropdown-menu a:hover {
+    color: #01aeef !important;
+}
+
+.nav-link:hover {
+    color: #01aeef !important;
+    transform: scale(1.2);
+}
+
+.footer-links a:hover,
+.footer-links a:hover .footer-icon {
+    color: #01aeef !important;
+    transform: scale(1.2);
+}
+
+.link-hover:hover {
+    color: #01aeef !important;
+}
+
+.icon-hover:hover {
+    color: #01aeef !important;
+}
+
+.carousel-container {
+    max-width: 100%;
+    height: auto;
+}
+
+.remove-dropdown-arrow .dropdown-toggle::after {
+    display: none !important;
+}
+
+
+.carousel-image {
+    width: 100%;
+
+    max-height: 650px;
+
+}
+
+.bi-geo-alt-fill:hover {
+    color: red;
+}
+
+.sun-icon:hover {
+    color: rgb(226, 226, 161);
+}
+
+@media (max-width: 567px) {
+    .small-font {
+        font-size: 14px;
+        /* Adjust the font size as needed */
+    }
+}
+
+@media (max-width: 567px) {
+    .justify-content-mobile2 {
+        margin: auto;
+
+        /* Adjust border radius as needed */
+    }
+}
+
+@media (max-width: 567px) {
+    .d-flex {
+        flex-wrap: wrap;
+    }
+
+    .delete-update {
+        margin-top: 10px;
+        /* Adjust spacing between delete and update buttons */
+        width: 100%;
+        /* Make the container full width */
+        display: flex;
+        justify-content: center;
+    }
+
+    .delete-button,
+    .update-button {
+        flex: 1;
+        /* Each button takes equal space */
+        margin: 0 5px;
+        /* Adjust margin between buttons */
+        max-width: 100px;
+        /* Limit maximum width of buttons */
+        text-align: center;
+        /* Center-align text */
+    }
+}
+
+@media (max-width: 567px) {
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 567px) {
+
+    .delete-update {
+        display: none;
+        /* Adjust font size for delete and update buttons */
+    }
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+@media (max-width: 567px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 567px) {
+    .toHide {
+        display: none;
+        /* Hide the middle layer */
+    }
+}
+
+@media(max-width:567px) {
+    .reduce-height1 {
+        height: 600px;
+    }
+}
+
+.latest-projects {
+    position: relative;
+    left: -100%;
+    /* Start off-screen */
+    animation: slideInLeft 4s forwards;
+    /* Play slide-in animation */
+}
+
+.social-links {
+    position: relative;
+    left: -100%;
+    animation: slideInLeft 2s forwards;
+}
+
+.top-links {
+    position: relative;
+    right: -100%;
+    animation: slideInRight 2s forwards;
+}
+
+.company-logo {
+    position: relative;
+    left: -100%;
+    animation: slideInLeft 2s forwards;
+
+}
+
+.navbar-links {
+    position: relative;
+    right: -100%;
+    animation: slideInRight 2s forwards;
+
+}
+
+.bottom-content1 {
+    position: relative;
+    left: -100%;
+    animation: slideInLeft 3s forwards;
+
+}
+
+.bottom-content2 {
+    position: relative;
+    right: -100%;
+    animation: slideInRight 3s forwards;
+
+}
+
+.copy-right {
+    position: relative;
+    left: -100%;
+    animation: slideInLeft 3s forwards;
+
+}
+
+.bottom-links {
+    position: relative;
+    right: -100%;
+    animation: slideInRight 3s forwards;
+
+}
+
+.about-us-picture {
+    position: relative;
+    right: -100%;
+    animation: slideInRight 2s forwards;
+
+}
+
+.about-us-content {
+    position: relative;
+    left: -100%;
+    animation: slideInLeft 2s forwards;
+}
+
+.joint-venture-page {
+    position: relative;
+    left: -100%;
+    animation: slideInLeft 2s forwards;
+}
+
+.project-detail-content {
+    position: relative;
+    left: -100%;
+    animation: slideInLeft 1s forwards;
+
+}
+
+.project-detail-map {
+    position: relative;
+    right: -100%;
+    animation: slideInRight 1s forwards;
+
+}
+
+@keyframes slideInRight {
+    0% {
+        right: -100%;
+        /* Start position */
+    }
+
+    100% {
+        right: 0;
+        /* End position */
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        left: -100%;
+        /* Start position */
+    }
+
+    100% {
+        left: 0;
+        /* End position */
+    }
+}
+
+.image-container {
+    overflow: hidden;
+}
+
+.image-container:hover img {
+    filter: brightness(40%);
+}
+
+.circle-button {
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.8s;
+}
+
+.image-container:hover .circle-button {
+    visibility: visible;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+.btn-primary:hover {
+    background-color: #01aeef !important;
+}
+
+@keyframes slideInBottom {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.slide-in-bottom {
+    animation: slideInBottom 0.5s ease forwards;
+}
+
+.brighten {
+    animation: increaseBrightness 5s forwards;
+    /* Apply animation */
+}
+
+@keyframes increaseBrightness {
+    from {
+        filter: brightness(0.3);
+        /* Start with 70% brightness */
+    }
+
+    to {
+        filter: brightness(1.2);
+        /* Increase to 100% brightness */
+    }
+}
