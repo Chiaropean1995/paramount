@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import { Modal, Button, Form, Spinner } from 'react-bootstrap';
-import { storage } from '../firebase'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
-import axios from "axios"
+import { Button, Form, Spinner, Offcanvas } from 'react-bootstrap';
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 export default function AddProjectModal({ onAddProject }) {
-    const url = "https://paramount-i0x2.onrender.com"
-    const [show, setShow] = useState(false);
+    const url = 'https://paramount-i0x2.onrender.com';
+    const [showForm, setShowForm] = useState(false);
     const [imageUrl, setImageURL] = useState(null);
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -26,8 +25,6 @@ export default function AddProjectModal({ onAddProject }) {
         progress_percentage: '',
     });
 
-
-
     const uploadImage = async (file) => {
         try {
             if (!file) {
@@ -35,71 +32,61 @@ export default function AddProjectModal({ onAddProject }) {
             }
 
             const fileName = file.name;
-            console.log("File Name:", fileName);
+            console.log('File Name:', fileName);
 
             const imageRef = ref(storage, `images/${fileName}`);
             await uploadBytes(imageRef, file);
-            console.log("File uploaded successfully!");
+            console.log('File uploaded successfully!');
 
             const imageURL = await getDownloadURL(imageRef);
             setImageURL(imageURL);
 
             return imageUrl;
         } catch (error) {
-            console.error("Error uploading image:", error);
+            console.error('Error uploading image:', error);
             return null;
         }
     };
 
-
-
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+        e.preventDefault();
         setLoading(true);
 
         try {
             let imageUrl = null;
 
             if (file) {
-                // Upload image to Firebase Storage
                 const fileName = file.name;
                 const imageRef = ref(storage, `images/${fileName}`);
                 await uploadBytes(imageRef, file);
-                console.log("File uploaded successfully!");
+                console.log('File uploaded successfully!');
 
-                // Get download URL
                 imageUrl = await getDownloadURL(imageRef);
-                console.log("Download URL:", imageUrl);
+                console.log('Download URL:', imageUrl);
             }
 
-            // Include imageUrl in the form data
             const formDataWithImageUrl = {
                 ...formData,
-                image_url: imageUrl
+                image_url: imageUrl,
             };
 
-            // Send form data with imageUrl to the server
             const response = await axios.post(`${url}/projects`, formDataWithImageUrl);
             console.log(response.data);
 
-            // Call the onAddProject function with the newly added project
             onAddProject(response.data);
 
-            handleClose();
+            setShowForm(false);
             toast.success('Project successfully added!', {
                 onClose: () => {
                     window.location.reload();
-                }
+                },
             });
         } catch (error) {
             console.error('Error adding project:', error);
         } finally {
-            setLoading(false); // Set loading state back to false when submission is complete
+            setLoading(false);
         }
     };
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -107,19 +94,18 @@ export default function AddProjectModal({ onAddProject }) {
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
-    }
-
+    };
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" onClick={() => setShowForm(true)}>
                 +
             </Button>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add New Project</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
+            <Offcanvas show={showForm} onHide={() => setShowForm(false)} placement="end">
+                <Offcanvas.Header closeButton style={{ backgroundColor: '#01aeef' }}>
+                    <Offcanvas.Title className="text-white">Add New Project</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
                     <Form encType="multipart/form-data">
                         <Form.Group controlId="formPrice">
                             <Form.Label>Price</Form.Label>
@@ -139,31 +125,29 @@ export default function AddProjectModal({ onAddProject }) {
                                 onChange={handleFileChange}
                                 accept="image/jpeg"
                             />
-
                         </Form.Group>
-
-                        <Form.Group controlId="formTitle">
-                            <Form.Label>Title</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter title"
-                                name="title"
-                                value={formData.title}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-
-                        <Form.Group controlId="formLocation">
-                            <Form.Label>Location</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter location"
-                                name="location"
-                                value={formData.location}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-
+                        <div className="d-flex">
+                            <Form.Group controlId="formTitle" className="me-3">
+                                <Form.Label>Title</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter title"
+                                    name="title"
+                                    value={formData.title}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formLocation">
+                                <Form.Label>Location</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter location"
+                                    name="location"
+                                    value={formData.location}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                        </div>
                         <Form.Group controlId="formDescription">
                             <Form.Label>Description</Form.Label>
                             <Form.Control
@@ -175,45 +159,50 @@ export default function AddProjectModal({ onAddProject }) {
                                 onChange={handleInputChange}
                             />
                         </Form.Group>
-                        <Form.Group controlId="formCar_park">
-                            <Form.Label>Car Park</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                name="car_park"
-                                value={formData.car_park}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="formBathroom">
-                            <Form.Label>Bathroom</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                name="bathroom"
-                                value={formData.bathroom}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="formBedroom">
-                            <Form.Label>Bedroom</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                name="bedroom"
-                                value={formData.bedroom}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="room_size">
-                            <Form.Label>Built Up</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter sq.ft"
-                                name="room_size"
-                                value={formData.room_size}
-                                onChange={handleInputChange} />
-                        </Form.Group>
+                        <div className="d-flex">
+                            <Form.Group controlId="formCar_park" className="me-3">
+                                <Form.Label>Car Park</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    name="car_park"
+                                    value={formData.car_park}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formBathroom">
+                                <Form.Label>Bathroom</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    name="bathroom"
+                                    value={formData.bathroom}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                        </div>
+                        <div className="d-flex">
+                            <Form.Group controlId="formBedroom" className="me-3">
+                                <Form.Label>Bedroom</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    name="bedroom"
+                                    value={formData.bedroom}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="room_size">
+                                <Form.Label>Built Up</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter sq.ft"
+                                    name="room_size"
+                                    value={formData.room_size}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                        </div>
                         <Form.Group controlId="progress_percentage">
                             <Form.Label>Progress Percentage</Form.Label>
                             <Form.Control
@@ -221,19 +210,20 @@ export default function AddProjectModal({ onAddProject }) {
                                 placeholder="Enter %"
                                 name="progress_percentage"
                                 value={formData.progress_percentage}
-                                onChange={handleInputChange} />
+                                onChange={handleInputChange}
+                            />
                         </Form.Group>
                     </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={(e) => { handleSubmit(e); uploadImage(); }}>
-                        {loading ? <Spinner /> : 'Submit'} {/* Render spinner if loading, otherwise render 'Submit' button */}
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+                    <div className="d-flex justify-content-between mt-3">
+                        <Button variant="secondary" onClick={() => setShowForm(false)}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={(e) => { handleSubmit(e); uploadImage(); }}>
+                            {loading ? <Spinner animation="border" size="sm" /> : 'Submit'}
+                        </Button>
+                    </div>
+                </Offcanvas.Body>
+            </Offcanvas>
             <ToastContainer
                 position="top-center"
                 autoClose={1000}

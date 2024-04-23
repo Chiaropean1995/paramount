@@ -112,8 +112,8 @@ export default function AddUpcomingProjectModal() {
                 +
             </Button>
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add New Project</Modal.Title>
+                <Modal.Header closeButton style={{ backgroundColor: '#01aeef' }}>
+                    <Modal.Title className="text-white">Add New Project</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form encType="multipart/form-data">
@@ -137,29 +137,29 @@ export default function AddUpcomingProjectModal() {
                             />
 
                         </Form.Group>
+                        <div className="d-flex">
+                            <Form.Group controlId="formTitle" className="me-5">
+                                <Form.Label>Title</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter title"
+                                    name="title"
+                                    value={formData.title}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
 
-                        <Form.Group controlId="formTitle">
-                            <Form.Label>Title</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter title"
-                                name="title"
-                                value={formData.title}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-
-                        <Form.Group controlId="formLocation">
-                            <Form.Label>Location</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter location"
-                                name="location"
-                                value={formData.location}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-
+                            <Form.Group controlId="formLocation">
+                                <Form.Label>Location</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter location"
+                                    name="location"
+                                    value={formData.location}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                        </div>
                         <Form.Group controlId="formDescription">
                             <Form.Label>Description</Form.Label>
                             <Form.Control
@@ -171,45 +171,49 @@ export default function AddUpcomingProjectModal() {
                                 onChange={handleInputChange}
                             />
                         </Form.Group>
-                        <Form.Group controlId="formCar_park">
-                            <Form.Label>Car Park</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                name="car_park"
-                                value={formData.car_park}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="formBathroom">
-                            <Form.Label>Bathroom</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                name="bathroom"
-                                value={formData.bathroom}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="formBedroom">
-                            <Form.Label>Bedroom</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                name="bedroom"
-                                value={formData.bedroom}
-                                onChange={handleInputChange}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="room_size">
-                            <Form.Label>Built Up</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter sq.ft"
-                                name="room_size"
-                                value={formData.room_size}
-                                onChange={handleInputChange} />
-                        </Form.Group>
+                        <div className="d-flex">
+                            <Form.Group controlId="formCar_park" className="me-5">
+                                <Form.Label>Car Park</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    name="car_park"
+                                    value={formData.car_park}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="formBathroom">
+                                <Form.Label>Bathroom</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    name="bathroom"
+                                    value={formData.bathroom}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                        </div>
+                        <div className="d-flex">
+                            <Form.Group controlId="formBedroom" className="me-5">
+                                <Form.Label>Bedroom</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    name="bedroom"
+                                    value={formData.bedroom}
+                                    onChange={handleInputChange}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="room_size">
+                                <Form.Label>Built Up</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter sq.ft"
+                                    name="room_size"
+                                    value={formData.room_size}
+                                    onChange={handleInputChange} />
+                            </Form.Group>
+                        </div>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>

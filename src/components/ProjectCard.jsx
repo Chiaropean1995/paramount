@@ -4,7 +4,7 @@ import '../App.css'
 import { Link } from 'react-router-dom';
 import { useState, useContext } from "react"
 import { AuthContext } from "../components/AuthProvider";
-import { Form, Modal, Button, Spinner } from "react-bootstrap";
+import { Form, Offcanvas, Button, Spinner } from "react-bootstrap";
 import { storage } from '../firebase'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import axios from "axios"
@@ -17,7 +17,7 @@ export default function ProjectCard({ id, price, image_url, title, location, des
     const { currentUser } = useContext(AuthContext);
     const [selectedProject, setSelectedProject] = useState(null);
     const [updatedProject, setUpdatedProject] = useState({});
-    const [showModal, setShowModal] = useState(false);
+    const [showForm, setShowForm] = useState(false);
     const [projects, setProjects] = useState([]);
     const [updatedImage, setUpdatedImage] = useState(null);
     const url = "https://paramount-i0x2.onrender.com"
@@ -63,7 +63,7 @@ export default function ProjectCard({ id, price, image_url, title, location, des
 
                 // Send the updated project data to the server
                 await axios.put(`${url}/projects/${id}`, updatedProjectData);
-                setShowModal(false);
+                setShowForm(false);
 
                 // Fetch updated projects immediately after update
                 fetchProjects();
@@ -146,7 +146,7 @@ export default function ProjectCard({ id, price, image_url, title, location, des
                             <button onClick={() => {
                                 setSelectedProject(projects);
                                 setUpdatedProject(projects);
-                                setShowModal(true);
+                                setShowForm(true);
                             }} className="update-button" style={{ width: "70px" }}>
                                 {updating ? (
                                     <Spinner animation="border" size="sm" role="status" />
@@ -157,11 +157,11 @@ export default function ProjectCard({ id, price, image_url, title, location, des
                         </div>
                     )}
                 </div>
-                <Modal show={showModal} onHide={() => setShowModal(false)}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Update Project</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
+                <Offcanvas show={showForm} onHide={() => setShowForm(false)} placement="end">
+                    <Offcanvas.Header closeButton style={{ backgroundColor: '#01aeef' }}>
+                        <Offcanvas.Title className="text-white">Update Project</Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
                         <Form encType="multipart/form-data">
                             <Form.Group controlId="price">
                                 <Form.Label>Price</Form.Label>
@@ -187,24 +187,26 @@ export default function ProjectCard({ id, price, image_url, title, location, des
                                     onChange={(e) => setUpdatedImage(e.target.files[0])}
                                 />
                             </Form.Group>
-                            <Form.Group controlId="title">
-                                <Form.Label>Title</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter title"
-                                    value={updatedProject.title}
-                                    onChange={(e) => setUpdatedProject({ ...updatedProject, title: e.target.value })}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="location">
-                                <Form.Label>Location</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter location"
-                                    value={updatedProject.name}
-                                    onChange={(e) => setUpdatedProject({ ...updatedProject, location: e.target.value })}
-                                />
-                            </Form.Group>
+                            <div className="d-flex">
+                                <Form.Group controlId="title" className="me-3">
+                                    <Form.Label>Title</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Enter title"
+                                        value={updatedProject.title}
+                                        onChange={(e) => setUpdatedProject({ ...updatedProject, title: e.target.value })}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="location">
+                                    <Form.Label>Location</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Enter location"
+                                        value={updatedProject.name}
+                                        onChange={(e) => setUpdatedProject({ ...updatedProject, location: e.target.value })}
+                                    />
+                                </Form.Group>
+                            </div>
                             <Form.Group controlId="description">
                                 <Form.Label>Description</Form.Label>
                                 <Form.Control
@@ -214,42 +216,46 @@ export default function ProjectCard({ id, price, image_url, title, location, des
                                     onChange={(e) => setUpdatedProject({ ...updatedProject, description: e.target.value })}
                                 />
                             </Form.Group>
-                            <Form.Group controlId="car_park">
-                                <Form.Label>Car Park</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter no"
-                                    value={updatedProject.car_park}
-                                    onChange={(e) => setUpdatedProject({ ...updatedProject, car_park: e.target.value })}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="bathroom">
-                                <Form.Label>Bathroom</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter no"
-                                    value={updatedProject.bathrooom}
-                                    onChange={(e) => setUpdatedProject({ ...updatedProject, bathroom: e.target.value })}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="bedroom">
-                                <Form.Label>Bedroom</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter no"
-                                    value={updatedProject.bedroom}
-                                    onChange={(e) => setUpdatedProject({ ...updatedProject, bedroom: e.target.value })}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="room_size">
-                                <Form.Label>Built Up</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Enter no"
-                                    value={updatedProject.room_size}
-                                    onChange={(e) => setUpdatedProject({ ...updatedProject, room_size: e.target.value })}
-                                />
-                            </Form.Group>
+                            <div className="d-flex">
+                                <Form.Group controlId="car_park" className="me-3">
+                                    <Form.Label>Car Park</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Enter no"
+                                        value={updatedProject.car_park}
+                                        onChange={(e) => setUpdatedProject({ ...updatedProject, car_park: e.target.value })}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="bathroom">
+                                    <Form.Label>Bathroom</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Enter no"
+                                        value={updatedProject.bathroom}
+                                        onChange={(e) => setUpdatedProject({ ...updatedProject, bathroom: e.target.value })}
+                                    />
+                                </Form.Group>
+                            </div>
+                            <div className="d-flex">
+                                <Form.Group controlId="bedroom" className="me-3">
+                                    <Form.Label>Bedroom</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Enter no"
+                                        value={updatedProject.bedroom}
+                                        onChange={(e) => setUpdatedProject({ ...updatedProject, bedroom: e.target.value })}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="room_size">
+                                    <Form.Label>Built Up</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Enter no"
+                                        value={updatedProject.room_size}
+                                        onChange={(e) => setUpdatedProject({ ...updatedProject, room_size: e.target.value })}
+                                    />
+                                </Form.Group>
+                            </div>
                             <Form.Group controlId="progress_percentage">
                                 <Form.Label>Progress Percentage</Form.Label>
                                 <Form.Control
@@ -260,20 +266,20 @@ export default function ProjectCard({ id, price, image_url, title, location, des
                                 />
                             </Form.Group>
                         </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={() => setShowModal(false)}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={handleUpdate}>
-                            {updating ? (
-                                <Spinner animation="border" size="sm" role="status" />
-                            ) : (
-                                "Save Changes"
-                            )}
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
+                        <div className="d-flex justify-content-between mt-3">
+                            <Button variant="secondary" onClick={() => setShowForm(false)}>
+                                Close
+                            </Button>
+                            <Button variant="primary" onClick={handleUpdate}>
+                                {updating ? (
+                                    <Spinner animation="border" size="sm" role="status" />
+                                ) : (
+                                    "Save Changes"
+                                )}
+                            </Button>
+                        </div>
+                    </Offcanvas.Body>
+                </Offcanvas>
             </div>
             <ToastContainer
                 position="top-center"

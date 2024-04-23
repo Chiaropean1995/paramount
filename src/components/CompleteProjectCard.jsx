@@ -142,8 +142,8 @@ export default function CompleteProjectCard({ id, price, image_url, title, locat
                 </Col>
             </Row>
             <Modal show={showModal} onHide={() => setShowModal(false)}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Update Project</Modal.Title>
+                <Modal.Header closeButton style={{ backgroundColor: '#01aeef' }}>
+                    <Modal.Title className="text-white">Update Project</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form encType="multipart/form-data">
@@ -171,24 +171,26 @@ export default function CompleteProjectCard({ id, price, image_url, title, locat
                                 onChange={(e) => setUpdatedImage(e.target.files[0])}
                             />
                         </Form.Group>
-                        <Form.Group controlId="title">
-                            <Form.Label>Title</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter title"
-                                value={updatedProject.title}
-                                onChange={(e) => setUpdatedProject({ ...updatedProject, title: e.target.value })}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="location">
-                            <Form.Label>Location</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter location"
-                                value={updatedProject.name}
-                                onChange={(e) => setUpdatedProject({ ...updatedProject, location: e.target.value })}
-                            />
-                        </Form.Group>
+                        <div className="d-flex">
+                            <Form.Group controlId="title" className="me-5">
+                                <Form.Label>Title</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter title"
+                                    value={updatedProject.title}
+                                    onChange={(e) => setUpdatedProject({ ...updatedProject, title: e.target.value })}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="location">
+                                <Form.Label>Location</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter location"
+                                    value={updatedProject.name}
+                                    onChange={(e) => setUpdatedProject({ ...updatedProject, location: e.target.value })}
+                                />
+                            </Form.Group>
+                        </div>
                         <Form.Group controlId="description">
                             <Form.Label>Description</Form.Label>
                             <Form.Control
@@ -198,42 +200,46 @@ export default function CompleteProjectCard({ id, price, image_url, title, locat
                                 onChange={(e) => setUpdatedProject({ ...updatedProject, description: e.target.value })}
                             />
                         </Form.Group>
-                        <Form.Group controlId="car_park">
-                            <Form.Label>Car Park</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                value={updatedProject.car_park}
-                                onChange={(e) => setUpdatedProject({ ...updatedProject, car_park: e.target.value })}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="bathroom">
-                            <Form.Label>Bathroom</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                value={updatedProject.bathrooom}
-                                onChange={(e) => setUpdatedProject({ ...updatedProject, bathroom: e.target.value })}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="bedroom">
-                            <Form.Label>Bedroom</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                value={updatedProject.bedroom}
-                                onChange={(e) => setUpdatedProject({ ...updatedProject, bedroom: e.target.value })}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="room_size">
-                            <Form.Label>Built Up</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter no"
-                                value={updatedProject.room_size}
-                                onChange={(e) => setUpdatedProject({ ...updatedProject, room_size: e.target.value })}
-                            />
-                        </Form.Group>
+                        <div className="d-flex">
+                            <Form.Group controlId="car_park" className="me-5">
+                                <Form.Label>Car Park</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    value={updatedProject.car_park}
+                                    onChange={(e) => setUpdatedProject({ ...updatedProject, car_park: e.target.value })}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="bathroom">
+                                <Form.Label>Bathroom</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    value={updatedProject.bathrooom}
+                                    onChange={(e) => setUpdatedProject({ ...updatedProject, bathroom: e.target.value })}
+                                />
+                            </Form.Group>
+                        </div>
+                        <div className="d-flex">
+                            <Form.Group controlId="bedroom" className="me-5">
+                                <Form.Label>Bedroom</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    value={updatedProject.bedroom}
+                                    onChange={(e) => setUpdatedProject({ ...updatedProject, bedroom: e.target.value })}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId="room_size">
+                                <Form.Label>Built Up</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter no"
+                                    value={updatedProject.room_size}
+                                    onChange={(e) => setUpdatedProject({ ...updatedProject, room_size: e.target.value })}
+                                />
+                            </Form.Group>
+                        </div>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>

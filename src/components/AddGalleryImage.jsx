@@ -64,12 +64,12 @@ export default function AddGalleryImage({ onAddImage }) {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" onClick={handleShow} >
                 Add Images
             </Button>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add New Image</Modal.Title>
+            <Modal show={show} onHide={handleClose} >
+                <Modal.Header closeButton style={{ backgroundColor: '#01aeef' }}>
+                    <Modal.Title className="text-white">Add New Image</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form encType="multipart/form-data">
