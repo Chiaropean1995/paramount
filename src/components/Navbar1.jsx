@@ -24,7 +24,7 @@ export default function Navbar1() {
     return (
         <>
 
-            <Navbar style={{ backgroundColor: "transparent", border: "none" }} expand="lg">
+            <Navbar className="navbar-custom" expand="lg">
                 <Container>
                     <Navbar.Brand as={Link} to="/profilepage">
                         <img
