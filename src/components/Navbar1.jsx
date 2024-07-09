@@ -24,7 +24,7 @@ export default function Navbar1() {
     return (
         <>
 
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="transparent" variant="light" expand="lg">
                 <Container>
                     <Navbar.Brand as={Link} to="/profilepage">
                         <img
