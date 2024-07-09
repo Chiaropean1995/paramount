@@ -307,8 +307,3 @@ body {
         /* Increase to 100% brightness */
     }
 }
-
-.navbar-custom {
-    background-color: transparent !important;
-    box-shadow: none !important;
-}
