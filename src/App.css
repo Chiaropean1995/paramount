@@ -134,7 +134,7 @@ body {
 }
 
 .latest-projects {
-    animation: slideInBottom 0.5s ease forwards;
+    animation: slideInBottom 2s ease forwards;
 }
 
 .social-links {
