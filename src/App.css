@@ -134,11 +134,7 @@ body {
 }
 
 .latest-projects {
-    position: relative;
-    left: -100%;
-    /* Start off-screen */
-    animation: slideInLeft 4s forwards;
-    /* Play slide-in animation */
+    animation: slideInBottom 0.5s ease forwards;
 }
 
 .social-links {
