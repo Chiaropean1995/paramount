@@ -129,7 +129,7 @@ export default function ProfilePage() {
                         >
                             {pictures.map((picture, index) => (
                                 <Carousel.Item key={index} className="carousel-item">
-                                    <img src={picture.src} alt={`Slide ${index + 1}`} className="d-block w-100 carousel-image brighten" style={{ height: "500px" }} />
+                                    <img src={picture.src} alt={`Slide ${index + 1}`} className="d-block w-100 carousel-image brighten" />
                                     <Carousel.Caption className="slide-in-bottom">
                                         {index === 0 && (
                                             <Button className="slide-in-bottom" variant="primary" onClick={() => handleViewProjects()} style={{ marginBottom: "200px", backgroundColor: "transparent", border: "1px solid white", borderRadius: "0px", padding: "20px" }}>VIEW PROJECTS <i className="bi bi-arrow-down"></i>
