@@ -63,11 +63,11 @@ const PaymentCalculator = () => {
             </Container>
             <div>
                 <div style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}>
+                    <video autoPlay muted loop id="video-bg">
+                        <source src={video} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
                     <Row className="mx-2">
-                        <video autoPlay muted loop id="video-bg">
-                            <source src={video} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
                         <Col sm={12} md={5} className="p-4 border rounded-start p-5 " style={{ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", zIndex: "1" }}  >
                             <h4 style={{ fontFamily: "Nunito, Roboto, sans-serif" }}>House Budget Calculator</h4>
                             <Form>
