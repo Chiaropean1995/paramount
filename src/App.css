@@ -303,29 +303,3 @@ body {
         /* Increase to 100% brightness */
     }
 }
-
-.video-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-#video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-
-.loan-calculator {
-    position: relative;
-    z-index: 1;
-    background-color: white;
-    /* Adjust as per your design */
-    padding: 20px;
-    margin-top: -150px;
-    /* Adjust as needed to position it correctly */
-}
