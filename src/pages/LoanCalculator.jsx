@@ -53,7 +53,7 @@ const PaymentCalculator = () => {
             <Header />
             <Navbar1 />
             <video autoPlay muted loop id="video-bg">
-                <source src={videoBackground} type="video/mp4" />
+                <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
             <Container fluid>
