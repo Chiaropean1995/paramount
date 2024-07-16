@@ -1,6 +1,7 @@
 import Header from "../components/Header"
 import Navbar1 from "../components/Navbar1"
 import Footer from "../components/Footer"
+import video from "../assets/video.mp4"
 import picture2 from "../assets/picture2.jpeg"
 import { useState } from "react";
 import { Row, Col, Container, Form, Button } from "react-bootstrap";
@@ -51,6 +52,9 @@ const PaymentCalculator = () => {
         <>
             <Header />
             <Navbar1 />
+            <video autoPlay muted loop id="video-bg">
+                <source src={video} type="video/mp4" />
+            </video>
             <Container fluid>
                 <Row>
                     <Col sm={12} className="p-0 position-relative"  >
