@@ -1,6 +1,7 @@
 import Header from "../components/Header"
 import Navbar1 from "../components/Navbar1"
 import Footer from "../components/Footer"
+import video from "../assets/video.mp4"
 import picture2 from "../assets/picture2.jpeg"
 import { useState } from "react";
 import { Row, Col, Container, Form, Button } from "react-bootstrap";
