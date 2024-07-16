@@ -69,7 +69,7 @@ const PaymentCalculator = () => {
                                 <source src={video} type="video/mp4" />
                             </video>
                         </div>
-                        <Col sm={12} md={5} className="position-relative p-4 border rounded-start p-5 bg-white" style={{ zIndex: 1, boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", marginTop: "100px" }}>
+                        <Col sm={12} md={5} className="p-4 border rounded-start p-5 " style={{ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}  >
                             <h4 style={{ fontFamily: "Nunito, Roboto, sans-serif" }}>House Budget Calculator</h4>
                             <Form>
                                 <Form.Group controlId="netIncome">
