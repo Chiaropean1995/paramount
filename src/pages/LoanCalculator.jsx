@@ -61,7 +61,7 @@ const PaymentCalculator = () => {
 
                 </Row>
             </Container>
-            <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
+            <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden", paddingBottom: "-100px" }}>
                 {/* Video background */}
                 <video autoPlay muted loop id="video-bg" style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover" }}>
                     <source src={video} type="video/mp4" />
