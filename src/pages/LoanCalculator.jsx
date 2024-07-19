@@ -61,14 +61,17 @@ const PaymentCalculator = () => {
 
                 </Row>
             </Container>
-            <div>
-                <div style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}>
-                    <video autoPlay muted loop id="video-bg">
-                        <source src={video} type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+            <div style={{ position: "relative" }}>
+                {/* Video background */}
+                <video autoPlay muted loop id="video-bg" style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover", zIndex: "-1" }}>
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+
+                {/* Main content with housing budget calculator */}
+                <div style={{ marginTop: "100px", display: "flex", justifyContent: "center", position: "relative", zIndex: "1" }}>
                     <Row className="mx-2">
-                        <Col sm={12} md={5} className="p-4 border rounded-start p-5 " style={{ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", zIndex: "1" }}  >
+                        <Col sm={12} md={5} className="p-4 border rounded-start p-5" style={{ backgroundColor: "rgba(255, 255, 255, 0.8)", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}>
                             <h4 style={{ fontFamily: "Nunito, Roboto, sans-serif" }}>House Budget Calculator</h4>
                             <Form>
                                 <Form.Group controlId="netIncome">
@@ -85,42 +88,40 @@ const PaymentCalculator = () => {
                                         <Form.Control type="text" placeholder="%" value={dsr} onChange={(e) => setDsr(e.target.value)} />
                                     </Form.Group>
                                 </div>
-                            </Form>
-                            <div className="text-center mt-3">
-                                <Button variant="primary" onClick={calculateHouseBudget}>Calculate</Button>
-                            </div>
-                            <hr />
-                            <h4 style={{ fontFamily: "Nunito, Roboto, sans-serif" }}>Loan Calculator</h4>
-                            <Form>
-                                <Form.Group className="mb-3" controlId="loanAmount">
-                                    <Form.Label>Loan Amount (RM):</Form.Label>
-                                    <Form.Control type="text" placeholder="RM" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} />
-                                </Form.Group>
-                                <div className="d-flex">
-                                    <Form.Group className="mb-3" controlId="interestRate">
-                                        <Form.Label>Interest Rate (%):</Form.Label>
-                                        <Form.Control type="text" placeholder="%" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
-                                    </Form.Group>
-                                    <Form.Group className="mb-3 ms-3" controlId="loanTenure">
-                                        <Form.Label>Loan Tenure (yrs):</Form.Label>
-                                        <Form.Control type="text" placeholder="years" value={loanTenure} onChange={(e) => setLoanTenure(e.target.value)} />
-                                    </Form.Group>
+                                <div className="text-center mt-3">
+                                    <Button variant="primary" onClick={calculateHouseBudget}>Calculate</Button>
                                 </div>
-                                <div className="text-center">
-                                    <Button variant="primary" onClick={handleCalculate}>Calculate</Button>
-                                </div>
+                                <hr />
+                                <h4 style={{ fontFamily: "Nunito, Roboto, sans-serif" }}>Loan Calculator</h4>
+                                <Form>
+                                    <Form.Group className="mb-3" controlId="loanAmount">
+                                        <Form.Label>Loan Amount (RM):</Form.Label>
+                                        <Form.Control type="text" placeholder="RM" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} />
+                                    </Form.Group>
+                                    <div className="d-flex">
+                                        <Form.Group className="mb-3" controlId="interestRate">
+                                            <Form.Label>Interest Rate (%):</Form.Label>
+                                            <Form.Control type="text" placeholder="%" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
+                                        </Form.Group>
+                                        <Form.Group className="mb-3 ms-3" controlId="loanTenure">
+                                            <Form.Label>Loan Tenure (yrs):</Form.Label>
+                                            <Form.Control type="text" placeholder="years" value={loanTenure} onChange={(e) => setLoanTenure(e.target.value)} />
+                                        </Form.Group>
+                                    </div>
+                                    <div className="text-center">
+                                        <Button variant="primary" onClick={handleCalculate}>Calculate</Button>
+                                    </div>
+                                </Form>
                             </Form>
                         </Col>
-                        <Col sm={12} md={7} className="p-4 border rounded-end p-5 box-shadow" style={{ backgroundColor: " #5c85d6", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }} >
+                        <Col sm={12} md={7} className="p-4 border rounded-end p-5 box-shadow" style={{ backgroundColor: " #5c85d6", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}>
                             <div>
                                 <h5 className="text-white" style={{ fontFamily: "Nunito, Roboto, sans-serif", marginBottom: "10px" }}>Summary:</h5>
                                 <div style={{ marginBottom: "20px" }}>
                                     <div style={{ marginBottom: "200px" }}>
                                         <span className="text-white" style={{ color: "#505050", fontSize: "16px", fontWeight: "bold" }}>Estimated House Budget:</span>
                                         <span style={{ marginLeft: "10px", fontWeight: "bold" }}>{houseBudget ? `RM ${addCommas(houseBudget)}` : ""}</span>
-
                                     </div>
-
                                     <div>
                                         <span className="text-white" style={{ color: "#505050", fontSize: "16px", fontWeight: "bold" }}>Monthly Payment:</span>
                                         <span style={{ marginLeft: "10px", fontWeight: "bold" }}>{monthlyPayment ? `RM ${addCommas(monthlyPayment)}` : ""}</span>
@@ -148,8 +149,7 @@ const PaymentCalculator = () => {
                         </Col>
                     </Row>
                 </div>
-
-            </div >
+            </div>
             <Footer />
         </>
     );
