@@ -105,66 +105,66 @@ export default function CompletedProjects() {
                 </div>
             </Form.Group>
 
+            <section style={{ paddingBottom: "50px" }}>
+                {
+                    loading ? ( // Render spinner if loading
+                        <div style={{ display: 'flex', justifyContent: 'center' }} >
+                            <Spinner animation="border" variant="primary" style={{ width: '5rem', height: '5rem' }} />
+                        </div >
+                    ) : (
+                        <Row >
+                            {filteredProjects.length === 0 ? (
+                                <p className="text-center" style={{ color: 'red', fontStyle: 'italic', marginTop: '20px' }}>No completed projects found</p>
+                            ) : (
+                                <Row >
+                                    {filteredProjects.map((upcomingProject, index) => (
+                                        <Col key={index} sm={12} className="mb-5">
+                                            <CompleteProjectCard
+                                                key={upcomingProject.id}
+                                                id={upcomingProject.id}
+                                                price={upcomingProject.price}
+                                                image_url={upcomingProject.image_url}
+                                                title={upcomingProject.title}
+                                                location={upcomingProject.location}
+                                                description={upcomingProject.description}
+                                                car_park={upcomingProject.car_park}
+                                                bathroom={upcomingProject.bathroom}
+                                                bedroom={upcomingProject.bedroom}
+                                                room_size={upcomingProject.room_size}
+                                                onDelete={() => handleDeleteProject(upcomingProject.id)}
 
-            {
-                loading ? ( // Render spinner if loading
-                    <div style={{ display: 'flex', justifyContent: 'center' }} >
-                        <Spinner animation="border" variant="primary" style={{ width: '5rem', height: '5rem' }} />
-                    </div >
-                ) : (
-                    <Row >
-                        {filteredProjects.length === 0 ? (
-                            <p className="text-center" style={{ color: 'red', fontStyle: 'italic', marginTop: '20px' }}>No completed projects found</p>
-                        ) : (
-                            <Row >
-                                {filteredProjects.map((upcomingProject, index) => (
-                                    <Col key={index} sm={12} className="mb-5">
-                                        <CompleteProjectCard
-                                            key={upcomingProject.id}
-                                            id={upcomingProject.id}
-                                            price={upcomingProject.price}
-                                            image_url={upcomingProject.image_url}
-                                            title={upcomingProject.title}
-                                            location={upcomingProject.location}
-                                            description={upcomingProject.description}
-                                            car_park={upcomingProject.car_park}
-                                            bathroom={upcomingProject.bathroom}
-                                            bedroom={upcomingProject.bedroom}
-                                            room_size={upcomingProject.room_size}
-                                            onDelete={() => handleDeleteProject(upcomingProject.id)}
+                                            />
 
-                                        />
+                                        </Col>
+                                    ))}
+                                </Row>
+                            )}
+                        </Row>
 
-                                    </Col>
-                                ))}
-                            </Row>
-                        )}
+                    )
+                }
+                {filteredProjects.length !== 0 && (
+                    <Row className="justify-content-center mt-3">
+                        <Button
+                            variant="outline-primary"
+                            onClick={handlePrevPage}
+                            disabled={currentPage === 1}
+                            style={{ width: "100px", height: "40px", display: "flex", alignItems: "center", justifyContent: "flex-start", backgroundColor: "white", color: "blue", borderRadius: "10px" }}
+                        >
+                            <i className="bi bi-arrow-left"></i> Previous
+                        </Button>
+                        <Button
+                            variant="outline-primary"
+                            onClick={handleNextPage}
+                            disabled={currentPage === totalPages}
+                            style={{ width: "100px", height: "40px", backgroundColor: "white", color: "blue", marginLeft: "10px", borderRadius: "10px" }}
+                        >
+                            Next <i className="bi bi-arrow-right"></i>
+                        </Button>
                     </Row>
 
-                )
-            }
-            {filteredProjects.length !== 0 && (
-                <Row className="justify-content-center mt-3">
-                    <Button
-                        variant="outline-primary"
-                        onClick={handlePrevPage}
-                        disabled={currentPage === 1}
-                        style={{ width: "100px", height: "40px", display: "flex", alignItems: "center", justifyContent: "flex-start", backgroundColor: "white", color: "blue", borderRadius: "10px" }}
-                    >
-                        <i className="bi bi-arrow-left"></i> Previous
-                    </Button>
-                    <Button
-                        variant="outline-primary"
-                        onClick={handleNextPage}
-                        disabled={currentPage === totalPages}
-                        style={{ width: "100px", height: "40px", backgroundColor: "white", color: "blue", marginLeft: "10px", borderRadius: "10px" }}
-                    >
-                        Next <i className="bi bi-arrow-right"></i>
-                    </Button>
-                </Row>
-
-            )}
-
+                )}
+            </section>
             <Footer />
         </>
     )
