@@ -115,7 +115,7 @@ const PaymentCalculator = () => {
                                     </Form>
                                 </Form>
                             </Col>
-                            <Col sm={12} md={7} className="p-4 border rounded-end p-5 box-shadow" style={{ backgroundColor: " #5c85d6", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}>
+                            <Col sm={12} md={7} className="p-4 border rounded-end p-5 box-shadow" style={{ backgroundColor: 'rgba(255, 255,255, 0.2)', borderRadius: '8px', boxShadow: '0px 0px 10px 10px rgba(0,0,0,0.5)' }}>
                                 <div>
                                     <h5 className="text-white" style={{ fontFamily: "Nunito, Roboto, sans-serif", marginBottom: "10px" }}>Summary:</h5>
                                     <div style={{ marginBottom: "20px" }}>
