@@ -9,7 +9,7 @@ import { useState } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Footer({ noPaddingTop }) {
+export default function Footer() {
     const url = "https://paramount-i0x2.onrender.com"
     const formRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -52,18 +52,11 @@ export default function Footer({ noPaddingTop }) {
         setEmail(e.target.value); // Update the email state
     };
 
-    const footerStyle = {
-        paddingTop: noPaddingTop ? "0" : "100px", // Conditionally set padding based on the prop
-        backgroundColor: "#101b25",
-        height: "50px",
-        width: "100%",
-        margin: 0,
-        padding: 0
-    };
+
 
     return (
         <>
-            <div style={{ footerStyle, paddingTop: "100px" }}>
+            <div>
                 <div className="extended-background1" style={{ backgroundColor: "#101b25", height: "50px", witdh: "100%", margin: 0, padding: 0 }} >
                     {/* Outer layer */}
                 </div>
