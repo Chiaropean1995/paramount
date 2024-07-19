@@ -9,7 +9,7 @@ import { useState } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Footer() {
+export default function Footer({ hasVideoBackground }) {
     const url = "https://paramount-i0x2.onrender.com"
     const formRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
