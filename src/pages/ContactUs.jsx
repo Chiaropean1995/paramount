@@ -59,7 +59,7 @@ export default function ContactUs() {
                 </Row>
             </Container>
 
-            <Container style={{ paddingTop: "100px", paddingBottom: "50px" }}>
+            <Container style={{ paddingTop: "100px", paddingBottom: "100px" }}>
                 <Row className="justify-content-center align-items-stretch">
                     <Col xs={12} md={6} className=" p-0  d-flex">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.1683991329314!2d101.44373708051346!3d3.049534345853114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc536627bb5bbf%3A0x6b99067098bb50a1!2sPerangsang%20Sentosa%20Sdn.%20Bhd.!5e0!3m2!1sen!2smy!4v1711784013370!5m2!1sen!2smy" style={{ width: "100%", height: "100%" }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
