@@ -63,7 +63,7 @@ export default function Footer({ noPaddingTop }) {
 
     return (
         <>
-            <div style={{ footerStyle }}>
+            <div style={{ footerStyle, paddingTop: "100px" }}>
                 <div className="extended-background1" style={{ backgroundColor: "#101b25", height: "50px", witdh: "100%", margin: 0, padding: 0 }} >
                     {/* Outer layer */}
                 </div>
