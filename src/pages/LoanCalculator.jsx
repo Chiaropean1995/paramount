@@ -72,7 +72,7 @@ const PaymentCalculator = () => {
                 <div style={{ position: "relative", zIndex: "1", paddingTop: "100px" }}>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <Row className="mx-2">
-                            <Col sm={12} md={5} className="p-4 border rounded-start p-5" style={{ backgroundColor: "rgba(255, 255, 255, 0.8)", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}>
+                            <Col sm={12} md={5} className="p-4 border rounded-start p-5" style={{ backgroundColor: 'rgba(255, 255,255, 0.2)', borderRadius: '8px', boxShadow: '0px 0px 10px 10px rgba(0,0,0,0.5)' }}>
                                 <h4 style={{ fontFamily: "Nunito, Roboto, sans-serif" }}>House Budget Calculator</h4>
                                 <Form>
                                     <Form.Group controlId="netIncome">
