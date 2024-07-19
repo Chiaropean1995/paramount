@@ -19,7 +19,7 @@ export default function AboutUs() {
                     <h2 style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial,Source Sans Pro, sans-serif', left: '60px', top: '250px' }} className="font-weight-bold position-absolute text-white ">ABOUT US</h2>
                 </Row>
             </Container>
-            <Container style={{ marginTop: "100px" }}>
+            <Container style={{ marginTop: "100px", paddingBottom: "50px" }}>
                 <Row>
                     <Col md={6} className="about-us-content">
                         <p style={{ fontStyle: "italic", color: "grey" }}>About Paramount Valley Development Sdn.Bhd.</p>
