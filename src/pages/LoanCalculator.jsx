@@ -63,7 +63,7 @@ const PaymentCalculator = () => {
             </Container>
             <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
                 {/* Video background */}
-                <video autoPlay muted loop id="video-bg" style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover", paddingBottom: "0px" }}>
+                <video autoPlay muted loop id="video-bg" style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover" }}>
                     <source src={video} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>

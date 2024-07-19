@@ -52,9 +52,18 @@ export default function Footer() {
         setEmail(e.target.value); // Update the email state
     };
 
+    const footerStyle = {
+        paddingTop: hasVideoBackground ? "0" : "100px", // Conditionally set padding based on the prop
+        backgroundColor: "#101b25",
+        height: "50px",
+        width: "100%",
+        margin: 0,
+        padding: 0
+    };
+
     return (
         <>
-            <div style={{ paddingTop: "100px", width: "100%" }}>
+            <div style={{ footerStyle }}>
                 <div className="extended-background1" style={{ backgroundColor: "#101b25", height: "50px", witdh: "100%", margin: 0, padding: 0 }} >
                     {/* Outer layer */}
                 </div>
