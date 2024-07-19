@@ -50,7 +50,7 @@ export default function AdminManagement() {
                     <h2 style={{ fontFamily: '"Source Sans Pro", sans-serif', left: '60px', top: '250px' }} className="font-weight-bold position-absolute text-white ">ADMIN MANAGEMENT</h2>
                 </Row>
             </Container>
-            <div style={{ paddingTop: '80px' }}>
+            <div style={{ paddingTop: '80px', paddingBottom: "50px" }}>
                 <Container>
                     <table className="table table-bordered table-sm">
                         <thead className="table-dark text-center">

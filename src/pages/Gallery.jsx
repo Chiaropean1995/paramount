@@ -89,7 +89,7 @@ export default function Gallery() {
                     <h2 style={{ fontFamily: '"Source Sans Pro", sans-serif', left: '60px', top: '250px' }} className="font-weight-bold position-absolute text-white">GALLERY</h2>
                 </Row>
             </Container>
-            <section style={{ paddingTop: "100px" }}>
+            <section style={{ paddingTop: "100px", paddingBottom: "50px" }}>
                 <Col sm={12} className="d-flex align-items-center justify-content-center" style={{ marginBottom: "20px" }}>
                     {currentUser && (
                         <AddGalleryImage onAddImage={handleAddProject} />

@@ -18,7 +18,7 @@ export default function JointVenture() {
                     <h2 style={{ fontFamily: '"Source Sans Pro", sans-serif', left: '60px', top: '250px' }} className="font-weight-bold position-absolute text-white ">JOINT VENTURE</h2>
                 </Row>
             </Container>
-            <Container style={{ marginTop: "100px" }}>
+            <Container style={{ marginTop: "100px", paddingBottom: "50px" }}>
                 <Col sm={12} md={6} className="joint-venture-page">
                     <h4>JOINT VENTURE OPPORTUNITIES</h4>
                     <img src={jointventure} alt="About us images" height="500px" width="650px" className="toHide"></img>
