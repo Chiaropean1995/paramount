@@ -9,7 +9,7 @@ import { useState } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Footer({ hasVideoBackground }) {
+export default function Footer({ noPaddingTop }) {
     const url = "https://paramount-i0x2.onrender.com"
     const formRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -53,7 +53,7 @@ export default function Footer({ hasVideoBackground }) {
     };
 
     const footerStyle = {
-        paddingTop: hasVideoBackground ? "0" : "100px", // Conditionally set padding based on the prop
+        paddingTop: noPaddingTop ? "0" : "100px", // Conditionally set padding based on the prop
         backgroundColor: "#101b25",
         height: "50px",
         width: "100%",
