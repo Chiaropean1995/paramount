@@ -117,34 +117,34 @@ const PaymentCalculator = () => {
                             </Col>
                             <Col sm={12} md={7} className="p-4 border rounded-end p-5 box-shadow" style={{ backgroundColor: 'rgba(255, 255,255, 0.2)', borderRadius: '8px', boxShadow: '0px 0px 10px 10px rgba(0,0,0,0.5)' }}>
                                 <div>
-                                    <h5 className="text-white" style={{ fontFamily: "Nunito, Roboto, sans-serif", marginBottom: "10px" }}>Summary:</h5>
+                                    <h5 className="text-dark" style={{ fontFamily: "Nunito, Roboto, sans-serif", marginBottom: "10px" }}>Summary:</h5>
                                     <div style={{ marginBottom: "20px" }}>
                                         <div style={{ marginBottom: "200px" }}>
-                                            <span className="text-white" style={{ color: "#505050", fontSize: "16px", fontWeight: "bold" }}>Estimated House Budget:</span>
+                                            <span className="text-dark" style={{ color: "#505050", fontSize: "16px", fontWeight: "bold" }}>Estimated House Budget:</span>
                                             <span style={{ marginLeft: "10px", fontWeight: "bold" }}>{houseBudget ? `RM ${addCommas(houseBudget)}` : ""}</span>
                                         </div>
                                         <div>
-                                            <span className="text-white" style={{ color: "#505050", fontSize: "16px", fontWeight: "bold" }}>Monthly Payment:</span>
+                                            <span className="text-dark" style={{ color: "#505050", fontSize: "16px", fontWeight: "bold" }}>Monthly Payment:</span>
                                             <span style={{ marginLeft: "10px", fontWeight: "bold" }}>{monthlyPayment ? `RM ${addCommas(monthlyPayment)}` : ""}</span>
                                         </div>
                                     </div>
                                     <div className="d-flex align-items-center">
                                         {principalPercentage > 0 && (
                                             <div style={{ width: `${principalPercentage}%`, height: "20px", backgroundColor: "#77CEE2", position: 'relative', textAlign: 'center' }}>
-                                                <span style={{ position: "absolute", top: "50%", transform: "translate(-50%, -50%)", color: "white", fontSize: "12px", fontWeight: "bold" }}>{principalPercentage}%</span>
+                                                <span style={{ position: "absolute", top: "50%", transform: "translate(-50%, -50%)", color: "black", fontSize: "12px", fontWeight: "bold" }}>{principalPercentage}%</span>
                                             </div>
                                         )}
                                         {interestPercentage > 0 && (
                                             <div style={{ width: `${interestPercentage}%`, height: "20px", backgroundColor: "#AFD5DE", position: 'relative', textAlign: 'center' }}>
-                                                <span style={{ position: "absolute", top: "50%", transform: "translate(-50%, -50%)", color: "white", fontSize: "12px", fontWeight: "bold" }}>{interestPercentage}%</span>
+                                                <span style={{ position: "absolute", top: "50%", transform: "translate(-50%, -50%)", color: "black", fontSize: "12px", fontWeight: "bold" }}>{interestPercentage}%</span>
                                             </div>
                                         )}
                                     </div>
                                     <div className="d-flex mt-3">
                                         <div className="rounded-circle me-3" style={{ backgroundColor: "#77CEE2", width: '20px', height: '20px' }}></div>
-                                        <span className="text-white">Principal Amount</span>
+                                        <span className="text-dark">Principal Amount</span>
                                         <div className="rounded-circle ms-5 me-3" style={{ backgroundColor: "#AFD5DE", width: '20px', height: '20px' }}></div>
-                                        <span className="text-white ">Interest Amount</span>
+                                        <span className="text-dark ">Interest Amount</span>
                                     </div>
                                 </div>
                             </Col>
