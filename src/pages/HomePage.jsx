@@ -146,7 +146,7 @@ export default function ProfilePage() {
             </Container>
 
 
-            <section id="projectListingSection" className="latest-projects" style={{ paddingTop: "50px" }}>
+            <section id="projectListingSection" className="latest-projects" style={{ paddingTop: "50px", paddingBottom: "50px" }}>
                 <Container>
                     <p className="text-center" style={{
                         fontStyle: 'italic', color: "grey"
