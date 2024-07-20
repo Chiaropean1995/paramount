@@ -186,9 +186,9 @@ export default function Gallery() {
 
             {/* Full screen image display */}
             {selectedImage && (
-                <div className="fullscreen-image-overlay" onClick={handleCloseImage}>
+                <div className="fullscreen-overlay" onClick={handleCloseImage}>
                     <img
-                        src={selectedImage.galleryimage}
+                        src={selectedImage}
                         alt="Zoomed Image"
                         className="fullscreen-image"
                     />
@@ -196,4 +196,5 @@ export default function Gallery() {
             )}
         </>
     );
-}
+};
+
