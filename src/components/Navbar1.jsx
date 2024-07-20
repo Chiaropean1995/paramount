@@ -23,7 +23,6 @@ export default function Navbar1() {
 
     return (
         <>
-
             <Navbar bg="light" variant="light" expand="lg" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
                 <Container>
                     <Navbar.Brand as={Link} to="/profilepage">
@@ -37,23 +36,22 @@ export default function Navbar1() {
                     <Navbar.Toggle aria-controls="navbarNav" />
                     <Navbar.Collapse id="navbarNav">
                         <Nav className="ms-auto navbar-links">
-                            <Nav.Link className="me-4" as={Link} to="/profilepage">Home</Nav.Link>
-                            <Nav.Link className="me-4" as={Link} to="/aboutus">About Us</Nav.Link>
-                            <NavDropdown title="Projects" id="navbarDropdown" className="me-4">
+                            <Nav.Link className="me-lg-4" as={Link} to="/profilepage">Home</Nav.Link>
+                            <Nav.Link className="me-lg-4" as={Link} to="/aboutus">About Us</Nav.Link>
+                            <NavDropdown title="Projects" id="navbarDropdown" className="me-lg-4">
                                 <NavDropdown.Item as={Link} to="/upcomingprojects">Upcoming Projects</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item as={Link} to="/completedprojects">Completed Projects</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link className="me-4" as={Link} to="/gallery">Gallery</Nav.Link>
-                            <Nav.Link className="me-4" as={Link} to="/jointventure">Joint Venture</Nav.Link>
-                            <Nav.Link className="me-4" as={Link} to="/loancalculator">Loan</Nav.Link>
-                            <Nav.Link className="me-4" as={Link} to="/contactus">Contact Us</Nav.Link>
-                            <Nav.Link className="custom-nav-link" as={Link} to="/adminmanagement" style={{ display: currentUser && currentUser.email === 'user@admin.com' ? 'block' : 'none' }}>Admin Management</Nav.Link>
+                            <Nav.Link className="me-lg-4" as={Link} to="/gallery">Gallery</Nav.Link>
+                            <Nav.Link className="me-lg-4" as={Link} to="/jointventure">Joint Venture</Nav.Link>
+                            <Nav.Link className="me-lg-4" as={Link} to="/loancalculator">Loan</Nav.Link>
+                            <Nav.Link className="me-lg-4" as={Link} to="/contactus">Contact Us</Nav.Link>
+                            <Nav.Link className="custom-nav-link me-lg-4" as={Link} to="/adminmanagement" style={{ display: currentUser && currentUser.email === 'user@admin.com' ? 'block' : 'none' }}>Admin Management</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-
         </>
     )
 }
