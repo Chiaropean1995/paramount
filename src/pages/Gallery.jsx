@@ -98,6 +98,37 @@ export default function Gallery() {
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <Spinner animation="border" variant="primary" style={{ width: '5rem', height: '5rem' }} />
                     </div>
+                ) : selectedImage ? (
+                    <Container>
+                        <Row className="justify-content-center">
+                            <Col xs={12} className="mb-4 text-center">
+                                <img
+                                    src={selectedImage.galleryimage}
+                                    alt={`Selected Image`}
+                                    className="img-fluid"
+                                    style={{ maxHeight: '80vh', maxWidth: '100%' }}
+                                />
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-center mt-3">
+                            <Button
+                                variant="outline-primary"
+                                onClick={handlePrevPage}
+                                disabled={currentPage === 1}
+                                style={{ width: "100px", height: "40px", display: "flex", alignItems: "center", justifyContent: "flex-start", backgroundColor: "white", color: "blue", borderRadius: "10px" }}
+                            >
+                                <i className="bi bi-arrow-left"></i> Previous
+                            </Button>
+                            <Button
+                                variant="outline-primary"
+                                onClick={handleNextPage}
+                                disabled={currentPage === totalPages}
+                                style={{ width: "100px", height: "40px", backgroundColor: "white", color: "blue", marginLeft: "10px", borderRadius: "10px" }}
+                            >
+                                Next <i className="bi bi-arrow-right"></i>
+                            </Button>
+                        </Row>
+                    </Container>
                 ) : (
                     <Container>
                         <Row className="justify-content-center">
@@ -136,18 +167,6 @@ export default function Gallery() {
                 )}
             </section>
             <Footer />
-
-            {/* Modal for Enlarged Image */}
-            {selectedImage && (
-                <Modal show={true} onHide={handleCloseModal} size="xl">
-                    <Modal.Header closeButton>
-                        <Modal.Title>Enlarged Image</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body className="text-center">
-                        <img src={selectedImage.galleryimage} alt="Zoomed Image" className="img-fluid" style={{ maxHeight: '80vh', maxWidth: '100%' }} />
-                    </Modal.Body>
-                </Modal>
-            )}
         </>
     );
 };
